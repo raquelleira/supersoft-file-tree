@@ -1,0 +1,43 @@
+<ul class="tree-root">
+  <li *ngFor="let folder of folders"
+      class="tree-item">
+      <div class="item-info">
+        <div *ngIf="folder.isFolder; else file"
+             class="folder"
+             [ngClass]="{'over': folder.over}"
+             (dragover)="onOver($event, folder)"
+             (drop)="onDrop($event, folder)"
+             (dragleave)="onLeave($event, folder)">
+              <!-- Aqui ao invés de ícones, vocês podem usar botões ou anchors (com os ícones dentro) para as ações.
+                    É sintaticamente mais correto -->
+          <mat-icon (dblclick)="openFolder(folder)"
+                    *ngIf="!folder.opened; else folderOpened">folder_open</mat-icon>
+          <ng-template #folderOpened>
+            <mat-icon (click)="closeFolder(folder)">close</mat-icon>
+          </ng-template>
+          {{ folder.name }}
+          <mat-icon *ngIf="folder.opened"
+                    (click)="selectFolder(folder)">search</mat-icon>
+        </div>
+        <ng-template #file>
+          <div class="file">
+            <mat-icon>description</mat-icon>
+            {{ folder.name }}
+          </div>
+        </ng-template>
+      </div>
+      <div class="item-content"
+           *ngIf="folder.opened">
+        <!-- Upload manual -->
+        <!--<label for="chooseFiles">Selecionar arquivos</label>
+        <input id="chooseFiles"
+               type="file"
+               multiple="true"
+               (change)="onRawFileInput($event.target.files)">-->
+        <app-file-explorer [folders]="folder.files"
+                           (folder)="selectFolder(folder)"></app-file-explorer>
+        <span *ngIf="folder.files?.length === 0"
+              class="empty-item">Pasta vazia</span>
+      </div>
+  </li>
+</ul>

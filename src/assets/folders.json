@@ -1,0 +1,44 @@
+[
+   {
+        "id": 1,
+        "name": "Pasta 1",
+        "parentId": null,
+        "isFolder": true
+   },
+   {
+        "id": 2,
+        "name": "Pasta 2",
+        "parentId": null,
+        "isFolder": true
+    },
+    {
+        "id": 3,
+        "name": "Pasta 2.1",
+        "parentId": 2,
+        "isFolder": true
+    },
+    {
+        "id": 4,
+        "name": "Pasta 2.2",
+        "parentId": 2,
+        "isFolder": true
+    },
+    {
+        "id": 5,
+        "name": "Pasta 2.2.1",
+        "parentId": 4,
+        "isFolder":true
+    },
+    {
+        "id": 6,
+        "name": "arquivo.pdf",
+        "parentId": 2,
+        "isFolder":false
+    },
+    {
+        "id": 7,
+        "name": "arquivo2.pdf",
+        "parentId": 2,
+        "isFolder":false
+    }
+]

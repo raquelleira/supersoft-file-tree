@@ -1,0 +1,30 @@
+.tree-root {
+    list-style-type: none;
+    .tree-item {
+        display: flex;
+        flex-direction: column;
+
+        mat-icon {
+            cursor: pointer;
+        }
+
+        .item-info {
+            .folder,
+            .file {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                &.over {
+                    background: #aaa;
+                }
+            }
+        }
+        .item-content {
+            .empty-item, label {
+                padding-left: 40px;
+            }
+        }
+    }
+}
